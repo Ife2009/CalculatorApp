@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 100%;
+        height: 100vh;
+        background-color: #e3f9ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .calculator {
+        background-color: #3a4452;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+
+
+
+    .calculator form input {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        border: 0;
+        box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.1);
+        background-color: transparent;
+        color: #fff;
+    }
+
+    form {
+        width: 100%;
+        /* background: red; */
+    }
+
+    .calculator form input#display {
+        width: 100%;
+        height: 50px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: #fff;
+        padding: 0px 15px;
+        text-align: right;
+    }
+
+    form input.equal {
+        width: 105px;
+        /* margin-left: 5px; */
+        /* flex: 1 */
+    }
+
+    form input.calculate {
+        background-color: chocolate;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="calculator">
+            <form action="">
+                <div class="display">
+                    <input id='display' type="text" name="display">
+                </div>
+                <div>
+                    <input class="calculate" type="button" value="AC" onclick="display.value = ''  ">
+                    <input class="calculate" type="button" value="DE"
+                        onclick="display.value = display.value.toString().slice(0, -1) ">
+                    <input type="button" value="." onclick="display.value += '.'  ">
+                    <input type="button" value="/" onclick="display.value += '/'  ">
+                </div>
+                <div>
+                    <input type="button" value="7" onclick="display.value += '7'  ">
+                    <input type="button" value="8" onclick="display.value += '8'  ">
+                    <input type="button" value="9" onclick="display.value += '9'  ">
+                    <input type="button" value="*" onclick="display.value += '*'  ">
+                </div>
+                <div>
+                    <input type="button" value="4" onclick="display.value += '4'  ">
+                    <input type="button" value="5" onclick="display.value += '5'  ">
+                    <input type="button" value="6" onclick="display.value += '6'  ">
+                    <input type="button" value="-" onclick="display.value += '-'  ">
+                </div>
+                <div>
+                    <input type="button" value="1" onclick="display.value += '1'  ">
+                    <input type="button" value="2" onclick="display.value += '2'  ">
+                    <input type="button" value="3" onclick="display.value += '3'  ">
+                    <input type="button" value="+" onclick="display.value += '+'  ">
+                </div>
+                <div>
+                    <input type="button" value="00" onclick="display.value += '00'  ">
+                    <input type="button" value="0" onclick="display.value += '0'  ">
+                    <input type="button" value="=" class="equal calculate"
+                        onclick="display.value = eval(display.value)">
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <script>
+        let displayBox = document.querySelector('#display')
+        console.log('|||', displayBox)
+        displayBox.addEventListener('onchange', (e) => {
+            console.log(e.target.value)
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>
